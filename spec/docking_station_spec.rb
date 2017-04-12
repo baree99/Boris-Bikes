@@ -2,10 +2,14 @@ require 'docking_station'
 
 describe DockingStation do
   describe ".release_bike" do
-    ## This next line is the one that's not right
-    it { should eq Bike.new }
+  station = DockingStation.new
+  bike = station.release_bike
+  it "should be an instace of bike" do
+  bike.should be_an_instance_of Bike
   end
-  describe ".working?" do
-    it { should respond_to }
+end
+  it 'releases working bikes' do
+    bike = subject.release_bike
+    expect(bike).to be_working
   end
 end
