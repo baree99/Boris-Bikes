@@ -1,9 +1,9 @@
 require 'docking_station'
 
 describe DockingStation do
-   it 'releases 20 bikes per station' do
+   it "releases #{DockingStation::DEFAULT_CAPACITY} bikes per station" do
     docking_station = DockingStation.new
-    expect { 21.times { subject.release_bike } }.to raise_error("No bike available")
+    expect { (DockingStation::DEFAULT_CAPACITY + 1).times { subject.release_bike } }.to raise_error("No bike available")
    end
 
   describe "#release_bike" do
@@ -19,7 +19,7 @@ describe DockingStation do
       bike = Bike.new
       station = DockingStation.new
       station.release_bike
-      expect { station.dock(bike) }.to_not raise_error 
+      expect { station.dock(bike) }.to_not raise_error
       # p station
       # p station.dock(bike)
     end

@@ -1,10 +1,11 @@
 class DockingStation
 
+  DEFAULT_CAPACITY = 20
   attr_reader :bikes
 
   def initialize
     @bikes = []
-    20.times do
+    DEFAULT_CAPACITY.times do
       @bikes << Bike.new
     end
   end
@@ -21,7 +22,7 @@ class DockingStation
 
   private
     def full?
-      return true if @bikes.count == 20
+      return true if @bikes.count == DEFAULT_CAPACITY
       false
     end
 
