@@ -50,4 +50,4 @@ class Bike
     true
     # @broken = true
   end
-end  
+end
